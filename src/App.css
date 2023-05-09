@@ -1,38 +1,323 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;900&display=swap');
+
+
+* {
+  font-family: 'Manrope', sans-serif !important;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+test {
+  color: #0000004d;
+  box-shadow: 0 0 10px #2929294d, 0 0 20px #4c4c4c17, 0 0 30px #3737371f, 0 0 40px #3333331a;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.breakline {
+  border: 1px solid rgba(66, 0, 104, 0.226);
+}
+
+.link{
+  text-decoration: none;
   color: white;
+  transition: 0.2s linear;
 }
 
-.App-link {
-  color: #61dafb;
+.link:hover{
+  text-decoration: underline;
+  color: orange;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.body {
+  /* background: linear-gradient(47deg, rgba(5, 5, 22, 1) 9%, rgba(21, 2, 33, 1) 33%, rgba(6, 1, 10, 1) 78%, rgba(1, 1, 28, 1) 100%); */
+  /* background-repeat: no-repeat;
+  background-cover: fill;
+  background-attachment: fixed;*/
+  background-color: #040016;
+  margin: 0;
+  width: 100vw;
+}
+
+.content {
+  width: 100vw;
+  z-index: 1;
+}
+
+.logoOverlay {
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.overlayLoading {
+  opacity: 1.0 !important;
+  color: white
+}
+
+.blob {
+  width: 100vw;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: auto;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.blob2 {
+  width: 100vw;
+  position: absolute;
+  right: 0;
+  top: auto;
+  bottom: -79vh;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.blob3 {
+  width: 100vw;
+  position: absolute;
+  right: 0;
+  top: auto;
+  bottom: -172vh;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.line {
+  width: 100vw;
+  position: absolute;
+  right: 0;
+  top: auto;
+  bottom: -240vh;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+span.nameHeader {
+  font-family: Unbounded, cursive !important;
+  color: rgb(221, 190, 255);
+  transition: 0.2s linear;
+  cursor: crosshair;
+  text-shadow: 0 0 10px #de63fd4d, 0 0 20px #ed40f35d, 0 0 30px #a500e673, 0 0 40px #8a00e679, 0 0 50px #7700e600, 0 0 60px #0f00e600, 0 0 70px #e6007300;
+}
+
+span.nameHeader:hover {
+  text-shadow: 0 0 10px #de63fd15, 0 0 20px #ed40f31f, 0 0 30px #a500e63b, 0 0 40px #8a00e66e;
+
+}
+
+/* .highlighOnScroll {
+  transition: transform 0.2s linear;
+}
+
+.highlighOnScroll.highlighted {
+  transform: scale(1.05);
+} */
+
+.headerBtn {
+  padding: 7px 16px;
+  border-radius: 20px;
+  margin: 10px;
+  opacity: 0.8;
+  border: none !important;
+  color: #ffffff;
+  background-color: #22034495;
+  /* border: 1px solid white; */
+  transition: transform 0.2s linear;
+  cursor: pointer;
+  box-shadow: 0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a;
+
+}
+
+.headerBtn:hover {
+  opacity: 1;
+  transform: scale(1.1) rotate(-3deg);
+}
+
+.navbarButton {
+  padding: 20px 20px;
+  color: #f5f5f5c0;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.navbarButton:hover {
+  color: white;
+  transform: translateY(-2px) scale(1.04);
+  text-shadow: 0 0 10px #de63fd4d, 0 0 20px #ed40f35d, 0 0 30px #a500e673, 0 0 40px #8a00e679, 0 0 50px #7700e600, 0 0 60px #0f00e600, 0 0 70px #e6007300;
+
+}
+
+a.sayHiBtn {
+  color: rgba(255, 255, 255, 0.685);
+  padding: 0px 20px;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 20px;
+  transition: 0.2s linear;
+  text-decoration: underline;
+  z-index: 20;
+}
+
+.sayHiBtn:hover {
+  transform: translateY(-2px);
+  border-radius: 10px;
+  color: #0044ff;
+}
+
+.typewrite {
+  color: white;
+  font-size: 50px;
+}
+
+.typewrite::after {
+  content: "|";
+  opacity: 1;
+  animation: blink 0.7s infinite;
+  color: white
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  50% {
+    opacity: 1;
   }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bg {
+  0% {
+    background: #000;
+  }
+
+  100% {
+    background: #fff;
+  }
+}
+
+.loading {
+  display: inline-block;
+  position: relative;
+}
+
+.loading div {
+  position: absolute;
+  background: #ffffff;
+  opacity: 1;
+  border-radius: 50%;
+  animation: loading 1.4s cubic-bezier(0, 0.7, 0.8, 1) infinite;
+}
+
+.loading div:nth-child(2) {
+  animation-delay: -.7s;
+}
+
+@keyframes loading {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+}
+
+/* portfolio */
+.prt_col {
+  background-size: cover;
+  height: 45vh;
+  width: 100%;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.prt_design_col_1 {
+  background-image: url('./assets/karabot.svg');
+  background-position: center;
+}
+
+.prt_work {
+  position: relative;
+  background-image: url('./assets/teamCubo.jpg');
+  filter: grayscale(80%);
+}
+
+.prt_work::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(90deg, rgb(0 3 242 / 82%) 0%, rgb(0 45 165 / 68%) 38%, rgb(23 72 130 / 83%) 68%, rgb(18 49 144 / 69%) 88%, rgb(33 14 171 / 91%) 100%, rgb(3 8 62) 100%); */
+  background-color: #2c01a5db;
+}
+.prt_work .span-title {
+  z-index: 1;
+}
+
+.highlighOnScroll {
+  opacity: 0;
+  transition: 0.4s opacity, 0.2s transform;
+  transform: translate(-30px, 0);
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.zoom-out {
+  opacity: 0;
+  transition: 0.2s opacity, 0.2s transform;
+  transform: scale(0);
+}
+
+.zoom-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  color: rgba(0, 0, 0, 0) !important;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #040016; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #360453; 
 }

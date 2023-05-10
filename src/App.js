@@ -1,16 +1,21 @@
 import { Box, Container, Grid, Typography, Chip, Stack, Button } from '@mui/material';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import './App.css';
 import overlay from './assets/overlay.svg';
 import blob from './assets/blob.svg';
 import blob2 from './assets/blob2.svg';
 import blob3 from './assets/blob3.svg';
+import blob4 from './assets/blob4.svg';
+
 import line from './assets/line.svg';
 import avatar from './assets/avatar.svg';
 import cuboLogo from './assets/cubo.svg';
 import BottomAppBar from './BottomAppBar';
 import Avatar from '@mui/material/Avatar';
 
+import { useMediaQuery } from '@mui/material';
+
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 // icons
 import NorthEastIcon from '@mui/icons-material/NorthEast';
 import SouthWestIcon from '@mui/icons-material/SouthWest';
@@ -20,7 +25,15 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import TerminalIcon from '@mui/icons-material/Terminal';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import DownloadingIcon from '@mui/icons-material/Downloading';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import RedditIcon from '@mui/icons-material/Reddit';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SliderLang from './SliderLang';
+
+import resume from './assets/resume.pdf'
 
 const headerInfo = 'hi! Im Abdallah Muath! im a tech enthusiast based in Srilanka';
 const headerButtons = ['Graphic Designer', 'UI/UX Engineer', 'ReactJS Developer', '.NET Developer']
@@ -48,11 +61,32 @@ function App() {
   //       }
   //     });
   //   }
-  //   window.addEventListener('scroll', highlighOnScroll);
+  //   window.addEventListener('scroll', highlighOnScroll);how can 
   //   return () => {
   //     window.removeEventListener('scroll', highlighOnScroll);
   //   }
   // }, []);
+  const isLargeScreen = useMediaQuery('(min-width:682px)');
+  console.log(window.innerWidth);
+  const [scrolledDown, setScrolledDown] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log(`scroll:${window.scrollY}`)
+
+      if (window.scrollY > 400) {
+        setScrolledDown(true);
+      } else {
+        setScrolledDown(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
 
   const highlightRef1 = useRef(null);
   const highlightRef2 = useRef(null);
@@ -133,29 +167,39 @@ function App() {
 
   return (
     <>
-      <Grid className='body' container sx={{ p: 7 }}>
+      <Grid className='body' container >
         <div class="logoOverlay">
           <img src={overlay} alt="Overlay Image" class="overlay" />
           <img src={blob} alt="Blob Image" class="blob" />
           <img src={blob2} alt="Blob Image" class="blob2" />
           <img src={blob3} alt="Blob Image" class="blob3" />
+          <img src={blob4} alt="Blob Image" class="blob4" />
         </div>
+
+        <button
+          className="scroll-top-button"
+          style={{ display: scrolledDown ? 'block' : 'none' }}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          <ArrowUpwardIcon /> Back to Top
+        </button>
+
 
         <div className='content'>
           <BottomAppBar />
-          <img src={line} alt="Blob Image" class="line" />
-          <Container>
-            <Grid xs={12} sx={{ m: 2, paddingTop: 9, height: '80vh', textAlign: 'left' }}>
+
+          <Container sx={{ width: { xs: '90vw', md: '60vw' }, marginTop: { xs: '7vh', md: '10vh' } }}>
+            <Box sx={{ paddingTop: 9, height: '80vh', textAlign: 'left' }}>
               <Chip
                 avatar={<Avatar alt="User" src={avatar} />}
                 label="Abdallah Muath"
                 variant="outlined"
                 sx={{ color: 'white', border: 'NONE', backgroundColor: '#1f0233a2' }}
               />
-              <Typography xs={6} sx={{ color: '#ffffffbe', fontSize: '50px', fontFamily: 'Unbounded, cursive !important' }}>
+              <Typography sx={{ color: '#ffffffbe', fontFamily: 'Unbounded, cursive !important', variant: 'h1', fontSize: { xs: '30px', sm: '40px', md: '50px' } }}>
                 I'm <span className='nameHeader'>Abdallah Muath!</span> Graphic Designer and Full Stack Developer
               </Typography>
-              <Typography sx={{ color: 'grey', fontSize: '30px' }}>
+              <Typography sx={{ color: 'grey', fontSize: { xs: '15px', sm: '20px', md: '30px' } }}>
                 I'm a <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>Tech Enthusiast</span> and <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>Creative</span> based in Colombo, Sri Lanka working as an Associate <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>.NET Developer</span>.
               </Typography>
               <Box sx={{ paddingLeft: 3, paddingTop: 4, paddingBottom: 1 }}>
@@ -164,9 +208,12 @@ function App() {
                   <button className='headerBtn'>{headerButton}</button>
                 ))}
               </Box>
-            </Grid>
+
+            </Box>
           </Container>
+
           <Container id='portfolio'>
+            <img src={line} alt="Blob Image" class="line" />
             <Grid ref={highlightRef1} className='highlighOnScroll' xs={12} sx={{ m: 3, p: 6, borderRadius: '25px', color: 'white' }}>
               <EmojiEventsIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', position: 'absolute', left: -40, boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />
               <Box>
@@ -183,12 +230,18 @@ function App() {
                     Hey there, I've dabbled in a bunch of different areas like <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>Design, UI/UX, Enterprise Solutions, Mobile App Developement,</span> and a whole lot more! I've got a diverse skill set and love taking on new challenges. Check out some of my <span style={{ textDecoration: 'underline', cursor: 'pointer', fontWeight: 'bold' }}>Career highlights!</span>
                   </Typography>
                 </Grid>
+                <a href={resume} download>
+                  <button className='downloadBtn'>
+                    <DownloadingIcon sx={{ fontSize: '14px' }} /> Download My Resume
+                  </button>
+                </a>
               </Box>
               <Container xs={12} sx={{ marginTop: '5px' }}>
-                <SliderLang/>
+                <SliderLang />
               </Container>
             </Grid>
           </Container>
+
           <Container id='work'>
             <Grid ref={highlightRef2} className='highlighOnScroll' xs={12} sx={{ m: 3, p: 6, color: 'white' }}>
               <TerminalIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', position: 'absolute', left: -40, boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />
@@ -206,12 +259,12 @@ function App() {
                   </Typography>
                 </Grid>
               </Box>
-              <Box sx={{ marginTop: 3, display: 'flex',  overflow: 'hidden', borderRadius:'20px' }} >
+              <Box sx={{ marginTop: 3, display: 'flex', overflow: 'hidden', borderRadius: '20px', borderRadius: '20px', boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a', transition: 'linear 0.3s', '&:hover': { boxShadow: '0 0 0px #de63fd4d, 0 0 0px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' } }} >
                 <Grid xs={7} className='prt_col prt_work'>
                 </Grid>
-                <Grid xs={5} sx={{ backgroundColor: '#0000004d', p: 4 }}>
+                <Grid xs={5} sx={{ backgroundColor: '#0000004d', p: 4, }}>
                   <img src={cuboLogo} alt='' width='50px' />
-                  <Typography sx={{ fontSize: '20px',  transition: '0.3s linear', fontFamily: 'Unbounded, cursive !important', '&:hover': { color: 'orange' } }}>
+                  <Typography sx={{ fontSize: '20px', transition: '0.3s linear', fontFamily: 'Unbounded, cursive !important', '&:hover': { color: 'orange' } }}>
                     Associate .NET Full Stack Developer
                   </Typography>
                   <Typography sx={{ fontSize: '16px', color: 'grey', justifyContent: 'justify' }}>
@@ -219,13 +272,14 @@ function App() {
                   </Typography>
                   <hr style={{ borderTop: 'dotted 1px', color: 'grey', }}></hr>
                   <Box sx={{ paddingTop: '7px', bottom: 0 }}>
-                    <a class='link' style={{ textTransform: 'uppercase', fontFamily: 'Unbounded, cursive !important', fontSize:'13px' }} href='https://www.cubosystems.com'>Discover More</a>
+                    <a class='link' style={{ textTransform: 'uppercase', fontFamily: 'Unbounded, cursive !important', fontSize: '13px' }} href='https://www.cubosystems.com'>Discover More</a>
                   </Box>
                 </Grid>
               </Box>
-              
+
             </Grid>
           </Container>
+
           <Container id='passion'>
             <Grid ref={highlightRef3} className='highlighOnScroll' xs={12} sx={{ m: 3, p: 6, borderRadius: '25px', color: 'white' }}>
               <SportsEsportsIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', position: 'absolute', left: -40, boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />
@@ -240,36 +294,54 @@ function App() {
                 <Grid xs={8}>
                   <Typography sx={{ fontSize: '18px', color: 'grey' }}>
                     I lead a balanced life and enjoy a variety of activities. When I'm not coding, you might find me playing snooker, table tennis, or swimming laps. I'm also a fan of video games – specially Battlefield 1<br></br>
-
                     Music is a huge part of my life, especially hip-hop and the NBA hold a special place in my heart. There's just something about the fast pace and high energy that I find exhilarating.
                   </Typography>
                 </Grid>
               </Box>
-              <Grid container xs={12} sx={{ marginTop: 3 }}>
-                <Grid item xs={3} className='prt_col prt_design_col_1'>
-
-                </Grid>
-                <Grid item xs={3} className='prt_col prt_design_col_1'>
-
-                </Grid>
-                <Grid item xs={3} className='prt_col prt_design_col_1'>
-
-                </Grid>
-                <Grid item xs={3} className='prt_col prt_design_col_1'>
-
+              <Grid container xs={12} sx={{ m: 5, overflow: 'hidden', borderRadius: '20px', boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a', transition: 'linear 0.3s', '&:hover': { boxShadow: '0 0 0px #de63fd4d, 0 0 0px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' } }}>
+                <Grid item xs={12}>
+                  <video src="/path/to/video.mp4" autoplay loop controls width="100%" height="auto" />
                 </Grid>
               </Grid>
             </Grid>
+
           </Container>
           <Container id='contact' >
-            <Grid ref={highlightRef4} className='zoom-out' xs={12} sx={{ m: 3, p: 6, borderRadius: '25px', color: 'white', justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
+            <Grid ref={highlightRef4} className='zoom-out' xs={12} sx={{ m: 3, marginBottom: '20vh', p: 6, borderRadius: '25px', color: 'white', justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
               <Typography sx={{ fontSize: '30px', color: 'white', fontFamily: 'Unbounded, cursive !important' }}><WavingHandIcon sx={{ fontSize: '40px' }} />Get in touch with me!</Typography>
-              Email Me at<a href="mailto:abdallahmuath0@gmail.com" className='abdallahmuath0@gmail.com'>Email Me!</a> or Call Me at <a href="tel:+94726712616">+94 72 671 2616</a>
+              <Container>
+                <Grid container sx={{ textAlign: 'center', p: 3 }}>
+                  <Grid xs={12} md={6}>
+                    <Typography sx={{ fontSize: '18px', color: 'grey' }}> Email Me at<br></br><a href="mailto:abdallahmuath0@gmail.com" style={{ color: 'grey' }}>abdallahmuath0@gmail.com</a> </Typography>
+                  </Grid>
+                  <Grid xs={12} md={6}>
+                    <Typography sx={{ fontSize: '18px', color: 'grey' }}> Call Me at<br></br> <a href="tel:+94726712616" style={{ color: 'grey' }}>+94 72 671 2616</a></Typography>
+                  </Grid>
+                </Grid>
+                {!isLargeScreen && (
+                  <Grid item sx={{ m: 3, backgroundColor: '#b471c510', justifyContent: 'center', display: 'flex', 'alignContent': 'center', borderRadius: '20px', margin: '10px', paddingRight: 2, paddingLeft: 2 }}>
+                    <a href="https://www.facebook.com">
+                      <FacebookIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', cursor: 'pointer', '&:hover': { color: 'violet', transform: 'translateY(-2px)' } }} />
+                    </a>
+                    <a href="https://www.instagram.com">
+                      <InstagramIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', cursor: 'pointer', '&:hover': { color: 'orange', transform: 'translateY(-2px)' } }} />
+                    </a>
+                    <a href="https://twitter.com/programerhumor?lang=en">
+                      <TwitterIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', cursor: 'pointer', '&:hover': { color: 'cyan', transform: 'translateY(-2px)' } }} />
+                    </a>
+                    <a href="https://www.reddit.com/r/programming/">
+                      <RedditIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', cursor: 'pointer', '&:hover': { color: 'tomato', transform: 'translateY(-2px)' } }} />
+                    </a>
+                    <a href="https://lk.linkedin.com/in/abdallah-muath-164242236">
+                      <LinkedInIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', cursor: 'pointer', '&:hover': { color: 'cornflowerblue', transform: 'translateY(-2px)' } }} />
+                    </a>
+                  </Grid>
+                )}
+              </Container>
             </Grid>
           </Container>
         </div>
       </Grid >
-
     </>
   );
 }

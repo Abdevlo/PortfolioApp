@@ -9,6 +9,7 @@ import RedditIcon from '@mui/icons-material/Reddit';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Link } from 'react-scroll';
 import { animateScroll as scroll } from 'react-scroll';
+import { useMediaQuery } from '@mui/material';
 
 
 const navBarButtons = [
@@ -32,6 +33,8 @@ const navBarButtons = [
 ];
 
 function BottomAppBar() {
+    const isLargeScreen = useMediaQuery('(min-width:682px)');
+
     return (
         <>
             <AppBar
@@ -58,20 +61,26 @@ function BottomAppBar() {
                     }}
                 >
                     <img src={logo} alt="logo" width="45px" />
-                    {navBarButtons.map((navButton) => (
-                        <Link
-                            to={navButton.link}
-                            spy={true}
-                            smooth={true}
-                            duration={500}
-                            className="navbarButton"
-                        >
-                            {navButton.text}
-                        </Link>
+                    {isLargeScreen && (
+                        navBarButtons.map((navButton) => (
+                            <Link
+                                to={navButton.link}
+                                spy={true}
+                                smooth={true}
+                                duration={500}
+                                className="navbarButton"
+                            >
+                                {navButton.text}
+                            </Link>
 
-                    ))}
+                        ))
+                    )}
+
+
                 </Toolbar>
-            </AppBar>
+            </AppBar>                    
+            {isLargeScreen && (
+
             <AppBar position="fixed" sx={{ top: 'auto', p: 2, bottom: 0, backgroundColor: 'transparent', justifyContent: 'center', display: 'flex', alignItems: 'center' }} elevation={0}>
                 <Grid item sx={{ m: 3, backgroundColor: '#b471c510', justifyContent: 'center', display: 'flex', 'alignContent': 'center', borderRadius: '20px', margin: '10px', paddingRight: 2, paddingLeft: 2 }}>
                     <a className='sayHiBtn' href='#contact'>Connect with me!</a>
@@ -97,6 +106,8 @@ function BottomAppBar() {
 
                 </Grid>
             </AppBar>
+            )}
+
         </>
     );
 }

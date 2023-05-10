@@ -94,14 +94,24 @@ test {
   z-index: 1;
 }
 
-.line {
+.blob4 {
   width: 100vw;
   position: absolute;
   right: 0;
   top: auto;
-  bottom: -240vh;
+  bottom: -313vh;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+
+.line {
+  position: absolute;
+  left: 13.65vw;
+  top: auto;
   opacity: 0.3;
   z-index: 0;
+  height: 200vh;
 }
 
 span.nameHeader {
@@ -140,9 +150,28 @@ span.nameHeader:hover {
 
 }
 
+.downloadBtn {
+  padding: 7px 16px;
+  border-radius: 20px;
+  margin: 10px;
+  opacity: 0.8;
+  border: none !important;
+  color: #ffffff;
+  background-color: #22034495;
+  /* border: 1px solid white; */
+  transition: transform 0.2s linear;
+  cursor: pointer;
+  box-shadow: 0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a;
+
+}
+
 .headerBtn:hover {
   opacity: 1;
   transform: scale(1.1) rotate(-3deg);
+}
+
+.downloadBtn:hover {
+  opacity: 1;
 }
 
 .navbarButton {
@@ -320,4 +349,24 @@ a.sayHiBtn {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #360453; 
+}
+
+
+.scroll-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 999;
+  align-content: center;
+}
+
+.scroll-top-button:hover {
+  color: #b791fe;
 }

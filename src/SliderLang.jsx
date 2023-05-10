@@ -43,14 +43,14 @@ function SliderLang() {
         autoplaySpeed: 2000,
         speed: 500,
         scroll: true,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 3
     };
 
     return (
         <>
-            <Grid sx={{backgroundColor:'#040016', p:3}}>
-                <Grid sx={{ textAlign: 'center', p: 2 }}>
+            <Grid sx={{backgroundColor:'#0000004d', marginTop:'40px', p:2, borderRadius:'20px', boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a'}}>
+                <Grid sx={{ textAlign: 'center' }}>
                     <Typography sx={{ fontSize: '20px', fontFamily: 'Unbounded, cursive !important' }}><CategoryIcon sx={{ fontSize: '30px' }} />Technologies I've Worked With!</Typography>
                 </Grid>
                 <Slider {...settings}>

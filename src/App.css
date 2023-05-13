@@ -4,7 +4,6 @@
 
 * {
   font-family: 'Manrope', sans-serif !important;
-
 }
 
 #root {
@@ -12,9 +11,8 @@
 }
 
 test {
-  color: #0000004d;
+  color: #fbfbfb71;
   box-shadow: 0 0 10px #2929294d, 0 0 20px #4c4c4c17, 0 0 30px #3737371f, 0 0 40px #3333331a;
-
 }
 
 .breakline {
@@ -40,6 +38,9 @@ test {
   background-color: #040016;
   margin: 0;
   width: 100vw;
+  overflow: hidden;
+  cursor: url('assets/logo.svg'), auto !important;
+
 }
 
 .content {
@@ -94,31 +95,20 @@ test {
   z-index: 1;
 }
 
-.blob4 {
-  width: 100vw;
-  position: absolute;
-  right: 0;
-  top: auto;
-  bottom: -313vh;
-  opacity: 0.3;
-  z-index: 1;
-}
-
-
 .line {
   position: absolute;
-  left: 13.65vw;
+  left: 5.55vw;
   top: auto;
   opacity: 0.3;
   z-index: 0;
-  height: 200vh;
+  height: 218vh;
 }
 
 span.nameHeader {
   font-family: Unbounded, cursive !important;
   color: rgb(221, 190, 255);
   transition: 0.2s linear;
-  cursor: crosshair;
+  cursor: url('assets/cursor.svg'), auto !important;
   text-shadow: 0 0 10px #de63fd4d, 0 0 20px #ed40f35d, 0 0 30px #a500e673, 0 0 40px #8a00e679, 0 0 50px #7700e600, 0 0 60px #0f00e600, 0 0 70px #e6007300;
 }
 
@@ -145,12 +135,12 @@ span.nameHeader:hover {
   background-color: #22034495;
   /* border: 1px solid white; */
   transition: transform 0.2s linear;
-  cursor: pointer;
+  cursor: url('assets/cursor.svg'), auto !important;
   box-shadow: 0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a;
 
 }
 
-.downloadBtn {
+.demoBtn {
   padding: 7px 16px;
   border-radius: 20px;
   margin: 10px;
@@ -160,17 +150,35 @@ span.nameHeader:hover {
   background-color: #22034495;
   /* border: 1px solid white; */
   transition: transform 0.2s linear;
-  cursor: pointer;
+  cursor: url('assets/cursor.svg'), auto !important;
+  box-shadow: 0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a;
+
+}
+
+.downloadBtn {
+  margin-top: 5px;
+  padding: 7px 16px;
+  border-radius: 20px;
+  margin: 10px;
+  opacity: 0.8;
+  border: none !important;
+  color: #ffffff;
+  background-color: #22034495;
+  /* border: 1px solid white; */
+  transition: transform 0.2s linear;
+  cursor: url('assets/cursor.svg'), auto !important;
   box-shadow: 0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a;
 
 }
 
 .headerBtn:hover {
   opacity: 1;
+  cursor: url('assets/cursor.svg'), auto !important;
   transform: scale(1.1) rotate(-3deg);
 }
 
 .downloadBtn:hover {
+  cursor: url('assets/cursor.svg'), auto !important;
   opacity: 1;
 }
 
@@ -184,9 +192,15 @@ span.nameHeader:hover {
 
 .navbarButton:hover {
   color: white;
+  cursor: url('assets/cursor.svg'), auto !important;
+
   transform: translateY(-2px) scale(1.04);
   text-shadow: 0 0 10px #de63fd4d, 0 0 20px #ed40f35d, 0 0 30px #a500e673, 0 0 40px #8a00e679, 0 0 50px #7700e600, 0 0 60px #0f00e600, 0 0 70px #e6007300;
 
+}
+
+.customCursor {
+  cursor: url('assets/cursor.svg'), auto !important;
 }
 
 a.sayHiBtn {
@@ -280,8 +294,7 @@ a.sayHiBtn {
 /* portfolio */
 .prt_col {
   background-size: cover;
-  height: 45vh;
-  width: 100%;
+  height: 40vh;
   overflow: hidden;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -295,7 +308,6 @@ a.sayHiBtn {
 .prt_work {
   position: relative;
   background-image: url('./assets/teamCubo.jpg');
-  filter: grayscale(80%);
 }
 
 .prt_work::before {
@@ -305,9 +317,10 @@ a.sayHiBtn {
   left: 0;
   width: 100%;
   height: 100%;
-  /* background: linear-gradient(90deg, rgb(0 3 242 / 82%) 0%, rgb(0 45 165 / 68%) 38%, rgb(23 72 130 / 83%) 68%, rgb(18 49 144 / 69%) 88%, rgb(33 14 171 / 91%) 100%, rgb(3 8 62) 100%); */
-  background-color: #2c01a5db;
+  background: linear-gradient(90deg, rgb(49 13 106 / 0%) 0%, rgb(44 2 76 / 0%) 38%, rgb(0 0 0 / 48%) 68%, #07031c96 88%, #040016 100%, #040016 100%);
+  /* background-color: #2c01a5db; */
 }
+
 .prt_work .span-title {
   z-index: 1;
 }
@@ -361,7 +374,7 @@ a.sayHiBtn {
   border: none;
   padding: 10px;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: url('assets/cursor.svg'), auto !important;
   font-size: 16px;
   z-index: 999;
   align-content: center;
@@ -369,4 +382,14 @@ a.sayHiBtn {
 
 .scroll-top-button:hover {
   color: #b791fe;
+}
+
+.responsive-image {
+  width: 100%; /* Default width for larger screens */
+
+  /* Media query for xs size */
+  @media (max-width: 600px) {
+    width: 100%; 
+    height: auto
+  }
 }

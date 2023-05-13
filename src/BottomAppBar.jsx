@@ -14,6 +14,10 @@ import { useMediaQuery } from '@mui/material';
 
 const navBarButtons = [
     {
+        text: 'ABOUT',
+        link: 'about',
+    },
+    {
         text: 'PORTFOLIO',
         link: 'portfolio',
     },
@@ -22,10 +26,10 @@ const navBarButtons = [
         link: 'work',
     },
 
-    {
-        text: 'PASSION',
-        link: 'passion',
-    },
+    // {
+    //     text: 'PASSION',
+    //     link: 'passion',
+    // },
     {
         text: 'CONTACT',
         link: 'contact',
@@ -78,30 +82,30 @@ function BottomAppBar() {
 
 
                 </Toolbar>
-            </AppBar>                    
+            </AppBar>                   
             {isLargeScreen && (
 
             <AppBar position="fixed" sx={{ top: 'auto', p: 2, bottom: 0, backgroundColor: 'transparent', justifyContent: 'center', display: 'flex', alignItems: 'center' }} elevation={0}>
                 <Grid item sx={{ m: 3, backgroundColor: '#b471c510', justifyContent: 'center', display: 'flex', 'alignContent': 'center', borderRadius: '20px', margin: '10px', paddingRight: 2, paddingLeft: 2 }}>
-                    <a className='sayHiBtn' href='#contact'>Connect with me!</a>
-                    <a href="https://www.facebook.com">
-                        <FacebookIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', cursor: 'pointer', '&:hover': { color: 'violet', transform: 'translateY(-2px)' } }} />
+                    <a className='sayHiBtn customCursor' href='#contact'>Connect with me!</a>
+                    <a href="https://www.facebook.com" className='customCursor'>
+                        <FacebookIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', '&:hover': { color: 'violet', transform: 'translateY(-2px)' } }} />
                     </a>
 
-                    <a href="https://www.instagram.com">
-                        <InstagramIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', cursor: 'pointer', '&:hover': { color: 'orange', transform: 'translateY(-2px)' } }} />
+                    <a href="https://www.instagram.com" className='customCursor'>
+                        <InstagramIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', '&:hover': { color: 'orange', transform: 'translateY(-2px)' } }} />
                     </a>
 
-                    <a href="https://twitter.com/programerhumor?lang=en">
-                        <TwitterIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', cursor: 'pointer', '&:hover': { color: 'cyan', transform: 'translateY(-2px)' } }} />
+                    <a href="https://twitter.com/programerhumor?lang=en" className='customCursor'>
+                        <TwitterIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', '&:hover': { color: 'cyan', transform: 'translateY(-2px)' } }} />
                     </a>
 
-                    <a href="https://www.reddit.com/r/programming/">
-                        <RedditIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', cursor: 'pointer', '&:hover': { color: 'tomato', transform: 'translateY(-2px)' } }} />
+                    <a href="https://www.reddit.com/r/programming/" className='customCursor'>
+                        <RedditIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear','&:hover': { color: 'tomato', transform: 'translateY(-2px)' } }} />
                     </a>
 
-                    <a href="https://lk.linkedin.com/in/abdallah-muath-164242236">
-                        <LinkedInIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', cursor: 'pointer', '&:hover': { color: 'cornflowerblue', transform: 'translateY(-2px)' } }} />
+                    <a href="https://lk.linkedin.com/in/abdallah-muath-164242236" className='customCursor'>
+                        <LinkedInIcon sx={{ p: 1, color: 'grey', transition: '0.2s linear', '&:hover': { color: 'cornflowerblue', transform: 'translateY(-2px)' } }} />
                     </a>
 
                 </Grid>

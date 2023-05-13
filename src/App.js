@@ -31,7 +31,19 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import RedditIcon from '@mui/icons-material/Reddit';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import BrushIcon from '@mui/icons-material/Brush';
+import WebStoriesIcon from '@mui/icons-material/WebStories';
+import AspectRatioIcon from '@mui/icons-material/AspectRatio';
+import BlurOnIcon from '@mui/icons-material/BlurOn';
+import CallIcon from '@mui/icons-material/Call';
+import EmailIcon from '@mui/icons-material/Email';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import AdjustIcon from '@mui/icons-material/Adjust';
+import karabot from './assets/karabot.svg'
+import karademo from './assets/karabot.png'
+
 import SliderLang from './SliderLang';
+import PortfolioItem from './PortfolioItem'
 
 import resume from './assets/resume.pdf'
 
@@ -168,13 +180,10 @@ function App() {
   return (
     <>
       <Grid className='body' container >
-        <div class="logoOverlay">
-          <img src={overlay} alt="Overlay Image" class="overlay" />
-          <img src={blob} alt="Blob Image" class="blob" />
-          <img src={blob2} alt="Blob Image" class="blob2" />
-          <img src={blob3} alt="Blob Image" class="blob3" />
-          <img src={blob4} alt="Blob Image" class="blob4" />
-        </div>
+        <img src={overlay} alt="Overlay Image" class="overlay" />
+        <img src={blob} alt="Blob Image" class="blob" />
+        <img src={blob2} alt="Blob Image" class="blob2" />
+        <img src={blob3} alt="Blob Image" class="blob3" />
 
         <button
           className="scroll-top-button"
@@ -200,87 +209,161 @@ function App() {
                 I'm <span className='nameHeader'>Abdallah Muath!</span> Graphic Designer and Full Stack Developer
               </Typography>
               <Typography sx={{ color: 'grey', fontSize: { xs: '15px', sm: '20px', md: '30px' } }}>
-                I'm a <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>Tech Enthusiast</span> and <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>Creative</span> based in Colombo, Sri Lanka working as an Associate <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>.NET Developer</span>.
+                I'm a <span style={{ textDecoration: 'underline dotted' }}>Tech Enthusiast</span> and <span >Creative</span> based in Colombo, Sri Lanka working as an Associate <span style={{ textDecoration: 'underline dotted' }}>.NET Developer</span>.
               </Typography>
               <Box sx={{ paddingLeft: 3, paddingTop: 4, paddingBottom: 1 }}>
                 <Typography sx={{ color: 'grey', textTransform: 'uppercase' }}>#Interests</Typography>
                 {headerButtons.map((headerButton) => (
-                  <button className='headerBtn'>{headerButton}</button>
+                  <a href='#portfolio'>
+                    <button className='headerBtn' href='portfolio'>{headerButton}</button>
+                  </a>
                 ))}
               </Box>
-
             </Box>
           </Container>
 
-          <Container id='portfolio'>
-            <img src={line} alt="Blob Image" class="line" />
-            <Grid ref={highlightRef1} className='highlighOnScroll' xs={12} sx={{ m: 3, p: 6, borderRadius: '25px', color: 'white' }}>
-              <EmojiEventsIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', position: 'absolute', left: -40, boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />
-              <Box>
-                <Chip
-                  avatar={<Avatar alt="User" src={avatar} />}
-                  label="Portfolio"
-                  variant="outlined"
-                  sx={{ color: 'white', border: 'NONE', backgroundColor: '#1f0233a2' }}
-                />
-                <Typography sx={{ fontSize: '40px', fontFamily: 'Unbounded, cursive !important' }}><SouthWestIcon sx={{ fontSize: '60px' }} />EXPERIENCE</Typography>
-                {/* <hr style={{borderTop: 'dotted 1px', color:'grey'}} />                */}
-                <Grid xs={8}>
-                  <Typography sx={{ fontSize: '18px', color: 'grey' }}>
-                    Hey there, I've dabbled in a bunch of different areas like <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>Design, UI/UX, Enterprise Solutions, Mobile App Developement,</span> and a whole lot more! I've got a diverse skill set and love taking on new challenges. Check out some of my <span style={{ textDecoration: 'underline', cursor: 'pointer', fontWeight: 'bold' }}>Career highlights!</span>
-                  </Typography>
+          <Container>
+            <Grid container>
+              <Grid item xs={1} sx={{ borderRight: '1px dotted', borderColor: '#fbfbfb71', paddingRight: '2rem', mb: '20vh', mt: '15vh' }}>
+              </Grid>
+              <Grid item xs={11}>
+                <Grid id='about'>
+                  <Grid ref={highlightRef3} className='highlighOnScroll' xs={12} sx={{ m: 3, p: 6, borderRadius: '25px', color: 'white' }}>
+                    <QuestionMarkIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', position: 'absolute', left: -45, boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />
+                    <Box>
+                      <Chip
+                        avatar={<Avatar alt="User" src={avatar} />}
+                        label="Portfolio"
+                        variant="outlined"
+                        sx={{ color: 'white', border: 'NONE', backgroundColor: '#1f0233a2' }}
+                      />
+                      <Typography sx={{ fontSize: { xs: '30px', sm: '40px', md: '50px' }, fontFamily: 'Unbounded, cursive !important' }}><AdjustIcon sx={{ fontSize: '35px' }} />ABOUT</Typography>
+                      {/* <hr style={{borderTop: 'dotted 1px', color:'grey'}} />                */}
+                      <Grid xs={12} md={9}>
+                        <Typography sx={{ fontSize: '18px', color: 'grey', textAlign: 'justify' }}>
+                        Hey there! I'm Abdallah Muath and im 19. I'm a versatile individual who loves coding and leading an outgoing lifestyle. When not programming, I enjoy snooker, table tennis, and swimming. Video games, especially Battlefield 1, are a passion of mine.
+
+Hip-hop music and the high energy of the NBA inspire me. With experience in Design, UI/UX, Enterprise Solutions, and Mobile App Development, I thrive on new challenges. Check out my career highlights!
+                        </Typography>
+                      </Grid>
+                    </Box>
+                    <Grid container spacing={2} sx={{ pt: 4 }}>
+                      <PortfolioItem
+                        icon={<BrushIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />}
+                        title="Design"
+                        content="As a developer well-versed in Adobe applications, I possess a strong skill set in graphic design and visual aesthetics. I have honed my abilities to create stunning and impactful designs using tools like Adobe Photoshop, Illustrator, and InDesign. Whether it's crafting visually appealing user interfaces or designing captivating marketing materials, my expertise in Adobe applications allows me to bring ideas to life with precision and creativity."
+                      />
+                      <PortfolioItem
+                        icon={<WebStoriesIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />}
+                        title="WebDev"
+                        content="Being an experiencede Web Developer, I have acquired a proficient understanding of various technologies. My expertise extends to HTML, CSS, and JavaScript, which enable me to build responsive and dynamic web pages. With a solid grasp of frameworks like Bootstrap and Foundation, I am able to streamline the development process and create visually cohesive and engaging websites."
+                      />
+                      <PortfolioItem
+                        icon={<AspectRatioIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />}
+                        title="FrontEnd"
+                        content="Frontend development is where I truly excel. Through my experience and expertise, I have become proficient in transforming design concepts into fully functional user interfaces.I am able to craft intuitive and interactive web experiences that prioritize usability and aesthetics. I am well-versed in modern frontend frameworks like React and Angular, enabling me to create scalable and efficient frontend solutions."
+                      />
+                      <PortfolioItem
+                        icon={<BlurOnIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />}
+                        title="BackEnd"
+                        content="In the realm of backend development, I possess strong skills in .NET Core and .NET Framework. With my knowledge of C# and other backend technologies, I can architect and build robust server-side applications that handle data processing, logic implementation, and database management. I am experienced in developing RESTful APIs and integrating them seamlessly with frontend interfaces, ensuring smooth communication and functionality between the client and the server."
+                      />
+                    </Grid>
+                    <SliderLang />
+                  </Grid>
+
                 </Grid>
-                <a href={resume} download>
-                  <button className='downloadBtn'>
-                    <DownloadingIcon sx={{ fontSize: '14px' }} /> Download My Resume
-                  </button>
-                </a>
-              </Box>
-              <Container xs={12} sx={{ marginTop: '5px' }}>
-                <SliderLang />
-              </Container>
+                <Grid id='portfolio'>
+                  {/* <img src={line} alt="Blob Image" class="line" /> */}
+                  <Grid ref={highlightRef1} className='highlighOnScroll' xs={12} sx={{ m: 3, p: 6, borderRadius: '25px', color: 'white' }}>
+                    <EmojiEventsIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', position: 'absolute', left: -45, boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />
+                    <Box>
+                      <Chip
+                        avatar={<Avatar alt="User" src={avatar} />}
+                        label="Portfolio"
+                        variant="outlined"
+                        sx={{ color: 'white', border: 'NONE', backgroundColor: '#1f0233a2' }}
+                      />
+                      <Typography sx={{ fontSize: { xs: '30px', sm: '40px', md: '50px' }, fontFamily: 'Unbounded, cursive !important' }}><SouthWestIcon sx={{ fontSize: '35px' }} />EXPERIENCE</Typography>
+                      {/* <hr style={{borderTop: 'dotted 1px', color:'grey'}} />                */}
+                      <Grid xs={12} md={9}>
+                        <Typography sx={{ fontSize: '18px', color: 'grey', textAlign: 'justify' }}>
+                          Having close to 2-1/2 years of experience, I've dabbled in a bunch of different areas like <span style={{ textDecoration: 'underline dotted' }}>Design, UI/UX, Enterprise Solutions, Mobile App Developement,</span> and a whole lot more! I've got a diverse skill set and love taking on new challenges. Check out some of my Career highlights!
+                        </Typography>
+                      </Grid>
+                      <a href={resume} download style={{marginTop:'12px'}}>
+                        <button className='downloadBtn'>
+                          <DownloadingIcon sx={{ fontSize: '14px' }} /> Download My Resume
+                        </button>
+                      </a>
+                    </Box>
+                    <Container sx={{ marginTop: '10vh' }}>
+                      <Grid container xs={12}>
+                        <Grid xs={12} md={6} sx={{ justifyContent: 'center', display: 'flex', alignContent: 'center', height: '65vh', overflow: 'hidden' }}>
+                          <div style={{ position: 'relative', height: '100%', width: '100%' }}>
+                            <img src={karademo} alt='kara' height='650px' className='responsive-image' />
+                            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '25%', background: 'linear-gradient(transparent, #040016)' }}></div>
+                          </div>
+                        </Grid>
+                        <Grid xs={12} md={6} sx={{ pt: { xs:0 , md:  13}, pl:{ xs:0 , md:7}}}>
+                          <img src={karabot} alt='kara' height='50px' />
+                          <Typography sx={{ fontSize: '30px', fontFamily: 'Unbounded, cursive !important' }}>KARABOT.AI</Typography>
+                          <Typography sx={{ fontSize: '13px', color: 'grey', textAlign: 'justify' }}>
+                            Developed using Flutter and Wit.ai's advanced natural language processing capabilities, Karabot is a cutting-edge health assistant that effortlessly helps you find the closest and available doctors in your area and provides personalized medicine recommendations. <br></br>With its intuitive chat-based interface and powerful technologies, Karabot empowers users of all ages to access healthcare services, make informed decisions about their well-being, and experience the future of healthcare conveniently.
+                          </Typography>
+                          <a href='mailto:abdallahmuath0@gmail.com?subject=Requesting%20For%20Karabot%20Demo&body=My%20name%20is%20%5BEnter%20your%20Name%5D%20and%20Im%20highly%20interested%20in%20Karabot%20Demo.%20Im%20available%20on%20%5BEnter%20Date%5D%20at%20%5BEnter%20Time%5D'>
+                            <button className='demoBtn'>Request Demo</button>
+                          </a>
+                          <a href='https://github.com/Abdevlo/KaraBot'>
+                            <button className='demoBtn' >View Source Code</button>
+                          </a>
+                        </Grid>
+                      </Grid>
+                    </Container>
+                  </Grid>
+                </Grid>
+                <Grid id='work'>
+                  <Grid ref={highlightRef2} className='highlighOnScroll' xs={12} sx={{ m: 3, p: 6, color: 'white' }}>
+                    <TerminalIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', position: 'absolute', left: -45, boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />
+                    <Box>
+                      <Chip
+                        avatar={<Avatar alt="User" src={avatar} />}
+                        label="Work"
+                        variant="outlined"
+                        sx={{ color: 'white', border: 'NONE', backgroundColor: '#1f0233a2' }}
+                      />
+                      <Typography sx={{ fontSize: { xs: '30px', sm: '40px', md: '50px' }, fontFamily: 'Unbounded, cursive !important' }}><NorthEastIcon sx={{ fontSize: '35px' }} />CURRENT ROLE</Typography>
+                      <Grid xs={12} md={8}>
+                        <Typography sx={{ fontSize: '18px', color: 'grey', textAlign: 'justify' }}>
+                          For the last 2 years, I've been working full-time at <span style={{ textDecoration: 'underline dotted' }}>Cubo Technologies</span>, doing a bit of everything from <span style={{ textDecoration: 'underline dotted' }}>marketing to human resource management to graphic design.</span> And now, I've started delving into the world of <span style={{ textDecoration: 'underline dotted' }}>full-stack development using ReactJS and .NET Core </span>  and <span style={{ textDecoration: 'underline dotted' }}>mobile-app developement with Flutter.</span>
+                        </Typography>
+                      </Grid>
+                    </Box>
+                    <Box sx={{ marginTop: 3, display: 'flex', overflow: 'hidden', flexDirection: { xs: 'column', md: 'row' } }}>
+                      <Grid xs={12} md={7} className='prt_col prt_work' sx={{ marginBottom: { xs: 3, md: 0 } }}>
+                      </Grid>
+                      <Grid xs={12} md={5} sx={{ backgroundColor: 'transparent', p: 3 }}>
+                        <Box sx={{ alignItems: 'center', marginBottom: 2 }}>
+                          <img src={cuboLogo} alt='' width='50px' sx={{ marginRight: 2 }} />
+                          <Typography sx={{ fontSize: '20px', transition: '0.3s linear', fontFamily: 'Unbounded, cursive !important', '&:hover': { color: 'orange' } }}>
+                            Associate .NET/ReactJS Full Stack Developer
+                          </Typography>
+                        </Box>
+                        <Typography sx={{ fontSize: '16px', color: 'grey', justifyContent: 'justify', textAlign: 'justify', marginBottom: 2 }}>
+                          Cubo Systems delivers comprehensive and innovative IT solutions to a diverse range of businesses across the globe.
+                        </Typography>
+                        <Box sx={{ bottom: 0 }}>
+                          <a class='link customCursor' style={{ textTransform: 'uppercase', fontFamily: 'Unbounded, cursive !important', fontSize: '13px' }} href='https://www.cubosystems.com'>Discover More</a>
+                        </Box>
+                      </Grid>
+                    </Box>
+
+                  </Grid>
+                </Grid>
+              </Grid>
             </Grid>
           </Container>
-
-          <Container id='work'>
-            <Grid ref={highlightRef2} className='highlighOnScroll' xs={12} sx={{ m: 3, p: 6, color: 'white' }}>
-              <TerminalIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', position: 'absolute', left: -40, boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />
-              <Box>
-                <Chip
-                  avatar={<Avatar alt="User" src={avatar} />}
-                  label="Work"
-                  variant="outlined"
-                  sx={{ color: 'white', border: 'NONE', backgroundColor: '#1f0233a2' }}
-                />
-                <Typography sx={{ fontSize: '40px', fontFamily: 'Unbounded, cursive !important' }}><NorthEastIcon sx={{ fontSize: '60px' }} />CURRENT ROLE</Typography>
-                <Grid xs={8}>
-                  <Typography sx={{ fontSize: '18px', color: 'grey' }}>
-                    For the last 2 years, I've been working full-time at <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>Cubo Technologies</span>, doing a bit of everything from <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>marketing to human resource management to graphic design.</span> And now, I've started delving into the world of <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>full-stack development using ReactJS and .NET Core </span>  and <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>mobile-app developement with Flutter.</span>
-                  </Typography>
-                </Grid>
-              </Box>
-              <Box sx={{ marginTop: 3, display: 'flex', overflow: 'hidden', borderRadius: '20px', borderRadius: '20px', boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a', transition: 'linear 0.3s', '&:hover': { boxShadow: '0 0 0px #de63fd4d, 0 0 0px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' } }} >
-                <Grid xs={7} className='prt_col prt_work'>
-                </Grid>
-                <Grid xs={5} sx={{ backgroundColor: '#0000004d', p: 4, }}>
-                  <img src={cuboLogo} alt='' width='50px' />
-                  <Typography sx={{ fontSize: '20px', transition: '0.3s linear', fontFamily: 'Unbounded, cursive !important', '&:hover': { color: 'orange' } }}>
-                    Associate .NET Full Stack Developer
-                  </Typography>
-                  <Typography sx={{ fontSize: '16px', color: 'grey', justifyContent: 'justify' }}>
-                    Cubo Systems delivers comprehensive and innovative IT solutions to a diverse range of businesses across the globe.
-                  </Typography>
-                  <hr style={{ borderTop: 'dotted 1px', color: 'grey', }}></hr>
-                  <Box sx={{ paddingTop: '7px', bottom: 0 }}>
-                    <a class='link' style={{ textTransform: 'uppercase', fontFamily: 'Unbounded, cursive !important', fontSize: '13px' }} href='https://www.cubosystems.com'>Discover More</a>
-                  </Box>
-                </Grid>
-              </Box>
-
-            </Grid>
-          </Container>
-
-          <Container id='passion'>
+          {/* <Container id='passion'>
             <Grid ref={highlightRef3} className='highlighOnScroll' xs={12} sx={{ m: 3, p: 6, borderRadius: '25px', color: 'white' }}>
               <SportsEsportsIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', position: 'absolute', left: -40, boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />
               <Box>
@@ -292,7 +375,7 @@ function App() {
                 />
                 <Typography sx={{ fontSize: '40px', fontFamily: 'Unbounded, cursive !important' }}><MultipleStopIcon sx={{ fontSize: '60px' }} />Current Interests</Typography>
                 <Grid xs={8}>
-                  <Typography sx={{ fontSize: '18px', color: 'grey' }}>
+                  <Typography sx={{ fontSize: '18px', color: 'grey', textAlign: 'justify'  }}>
                     I lead a balanced life and enjoy a variety of activities. When I'm not coding, you might find me playing snooker, table tennis, or swimming laps. I'm also a fan of video games – specially Battlefield 1<br></br>
                     Music is a huge part of my life, especially hip-hop and the NBA hold a special place in my heart. There's just something about the fast pace and high energy that I find exhilarating.
                   </Typography>
@@ -303,19 +386,21 @@ function App() {
                   <video src="/path/to/video.mp4" autoplay loop controls width="100%" height="auto" />
                 </Grid>
               </Grid>
-            </Grid>
+            </Grid> 
 
-          </Container>
+          </Container>*/}
           <Container id='contact' >
-            <Grid ref={highlightRef4} className='zoom-out' xs={12} sx={{ m: 3, marginBottom: '20vh', p: 6, borderRadius: '25px', color: 'white', justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
+            <Grid ref={highlightRef4} className='zoom-out' xs={12} sx={{ m: 3, marginBottom: '5vh', p: 6, borderRadius: '25px', color: 'white', justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
               <Typography sx={{ fontSize: '30px', color: 'white', fontFamily: 'Unbounded, cursive !important' }}><WavingHandIcon sx={{ fontSize: '40px' }} />Get in touch with me!</Typography>
               <Container>
                 <Grid container sx={{ textAlign: 'center', p: 3 }}>
                   <Grid xs={12} md={6}>
-                    <Typography sx={{ fontSize: '18px', color: 'grey' }}> Email Me at<br></br><a href="mailto:abdallahmuath0@gmail.com" style={{ color: 'grey' }}>abdallahmuath0@gmail.com</a> </Typography>
+                    <EmailIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />
+                    <Typography sx={{ fontSize: '18px', color: 'grey' }}> Email Me at<br></br><a href="mailto:abdallahmuath0@gmail.com" className='customCursor' style={{ color: 'grey' }}>abdallahmuath0@gmail.com</a> </Typography>
                   </Grid>
                   <Grid xs={12} md={6}>
-                    <Typography sx={{ fontSize: '18px', color: 'grey' }}> Call Me at<br></br> <a href="tel:+94726712616" style={{ color: 'grey' }}>+94 72 671 2616</a></Typography>
+                    <CallIcon sx={{ backgroundColor: '#1f0233', p: 1, borderRadius: '50%', boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a' }} />
+                    <Typography sx={{ fontSize: '18px', color: 'grey' }}> Call Me at<br></br> <a href="tel:+94726712616" className='customCursor' style={{ color: 'grey' }}>+94 72 671 2616</a></Typography>
                   </Grid>
                 </Grid>
                 {!isLargeScreen && (

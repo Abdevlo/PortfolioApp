@@ -43,24 +43,47 @@ function SliderLang() {
         autoplaySpeed: 2000,
         speed: 500,
         scroll: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
+        slidesToShow: 6,
+        slidesToScroll: 3,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
 
     return (
         <>
-            <Grid sx={{backgroundColor:'#0000004d', marginTop:'40px', p:2, borderRadius:'20px', boxShadow: '0 0 10px #de63fd4d, 0 0 20px #ed40f317, 0 0 30px #a500e61f, 0 0 40px #8a00e61a'}}>
-                <Grid sx={{ textAlign: 'center' }}>
-                    <Typography sx={{ fontSize: '20px', fontFamily: 'Unbounded, cursive !important' }}><CategoryIcon sx={{ fontSize: '30px' }} />Technologies I've Worked With!</Typography>
-                </Grid>
+            <Grid sx={{}}>
                 <Slider {...settings}>
                     <div>
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={reactJS} alt='react' height='40px' style={{ display: 'inherit' }} />
                             <Typography sx={typographyStyles}>ReactJS</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A JavaScript library for building user interfaces, developed by Facebook.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://legacy.reactjs.org/docs/getting-started.html'>Learn ReactJS</a>
                         </Grid>
                     </div>
@@ -68,9 +91,9 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={netCore} alt='react' height='40px' style={{ display: 'inherit' }} />
                             <Typography sx={typographyStyles}>.NET Core</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A free and open-source, cross-platform framework for building modern, cloud-based, internet-connected applications, developed by Microsoft.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://dotnet.microsoft.com/'>Learn .NET Core</a>
                         </Grid>
                     </div>
@@ -78,9 +101,9 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={flutter} alt='react' height='40px' style={{ display: 'inherit' }} />
                             <Typography sx={typographyStyles}>Flutter</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A free and open-source mobile application development framework created by Google for building natively compiled applications for mobile, web, and desktop from a single codebase.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://flutter.dev/'>Learn Flutter</a>
                         </Grid>
                     </div>
@@ -88,19 +111,19 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={html} alt='react' height='40px' style={{ display: 'inherit' }} />
                             <Typography sx={typographyStyles}>HTML/CSS</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 The standard markup and style sheet language used for creating web pages and applications.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://www.w3.org/html/'>Learn HTML/CSS</a>
                         </Grid>
                     </div>
                     <div>
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={frame} alt='react' height='40px' style={{ display: 'inherit' }} />
-                            <Typography sx={typographyStyles}>.NET Framework</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            <Typography sx={typographyStyles}>.NET</Typography>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A software development framework created by Microsoft for building applications with visually stunning user experiences and secure communication.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://dotnet.microsoft.com/download/dotnet-framework'>Learn .NET Framework</a>
                         </Grid>
                     </div>
@@ -108,9 +131,9 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={tortoise} alt='react' height='40px' style={{ display: 'inherit' }} />
                             <Typography sx={typographyStyles}>Tortoise SVN</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A free and open-source Apache Subversion (SVN) client for managing source code and version control directly from Windows Explorer.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://tortoisesvn.net/'>Learn Tortoise SVN</a>
                         </Grid>
                     </div>
@@ -118,9 +141,9 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={github} alt='react' height='40px' style={{ display: 'inherit' }} />
                             <Typography sx={typographyStyles}>Github</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A web-based platform that provides hosting for software development and version control using Git.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://github.com/'>Learn Github</a>
                             <a style={{ color: 'yellow', fontSize: '12px' }} href='https://github.com/Abdevlo'>My Github</a>
                         </Grid>
@@ -129,9 +152,9 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={dockerLogo} alt='Docker' height='40px' style={{ display: 'inherit' }} />
                             <Typography sx={typographyStyles}>Docker</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A platform for developing, shipping, and running applications using containerization technology.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://www.docker.com/'>Learn Docker</a>
                         </Grid>
                     </div>
@@ -139,9 +162,9 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={angularJSLogo} alt='AngularJS' height='40px' style={{ display: 'inherit' }} />
                             <Typography sx={typographyStyles}>AngularJS</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A JavaScript-based open-source front-end web application framework developed by Google.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://angularjs.org/'>Learn AngularJS</a>
                         </Grid>
                     </div>
@@ -149,9 +172,9 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={reactNativeLogo} alt='React Native' height='40px' style={{ display: 'inherit' }} />
                             <Typography sx={typographyStyles}>React Native</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A JavaScript framework for building native mobile applications for iOS, Android, and other platforms.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://reactnative.dev/'>Learn React Native</a>
                         </Grid>
                     </div>
@@ -159,9 +182,9 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={azureLogo} alt='Azure' height='40px' style={{ display: 'inherit' }} />
                             <Typography sx={typographyStyles}>Azure</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services through Microsoft-managed data centers.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://azure.microsoft.com/'>Learn Azure</a>
                         </Grid>
                     </div>
@@ -169,9 +192,9 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={awsLogo} alt='AWS' height='40px' style={{ display: 'inherit' }} />
                             <Typography sx={typographyStyles}>AWS</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A cloud computing platform created by Amazon for building, testing, and deploying applications and services through Amazon-managed data centers.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://aws.amazon.com/'>Learn AWS</a>
                         </Grid>
                     </div>
@@ -179,9 +202,9 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             {/* <img src={sqlServer} alt='SQL Server' height='40px' style={{ display: 'inherit' }} /> */}
                             <Typography sx={typographyStyles}>SQL Server</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A relational database management system developed by Microsoft, commonly used in enterprise environments.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://www.microsoft.com/en-us/sql-server'>Learn SQL Server</a>
                         </Grid>
                     </div>
@@ -189,9 +212,9 @@ function SliderLang() {
                         <Grid sx={{ p: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             {/* <img src={mongoDB} alt='MongoDB' height='40px' style={{ display: 'inherit' }} /> */}
                             <Typography sx={typographyStyles}>MongoDB</Typography>
-                            <Typography sx={typographyfontStyles}>
+                            {/* <Typography sx={typographyfontStyles}>
                                 A document-oriented NoSQL database program, which uses JSON-like documents with optional schemas.
-                            </Typography>
+                            </Typography> */}
                             <a style={{ color: 'lightblue', fontSize: '12px' }} href='https://www.mongodb.com/'>Learn MongoDB</a>
                         </Grid>
                     </div>
